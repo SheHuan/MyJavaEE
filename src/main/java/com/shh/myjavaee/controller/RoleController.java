@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.List;
@@ -114,5 +115,42 @@ public class RoleController {
     @ResponseBody
     public Role serializeParams(Role role) {
         return role;
+    }
+
+    @RequestMapping("/addRole")
+    public String addRole(Model model, Role role) {
+        model.addAttribute("roleName", role.getRoleName());
+        model.addAttribute("note", role.getNote());
+        return "redirect:./result";
+    }
+
+    @RequestMapping("/addRole2")
+    public String addRole2(Model model, Role role) {
+        model.addAttribute("roleName", role.getRoleName());
+        model.addAttribute("note", role.getNote());
+        return "redirect:./result2/{roleName}";
+    }
+
+    @RequestMapping("/addRole3")
+    public String addRole3(RedirectAttributes ra, Role role) {
+        ra.addFlashAttribute("role", role);
+        return "redirect:./result3";
+    }
+
+    @RequestMapping("/result")
+    public String result(Model model, Role role) {
+        return "result";
+    }
+
+    @RequestMapping("/result2/{roleName}")
+    public String result2(Model model, @PathVariable("roleName") String roleName, String note) {
+        model.addAttribute("roleName", roleName);
+        model.addAttribute("note", note);
+        return "result2";
+    }
+
+    @RequestMapping("/result3")
+    public String result3(Role role) {
+        return "result";
     }
 }

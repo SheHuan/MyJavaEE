@@ -4,7 +4,7 @@
     <title>RoleForm</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/role/commonParams3" id="form" method="post">
+<form action="${pageContext.request.contextPath}/role/addRole3" id="form" method="post">
     <table>
         <tr>
             <td>名称</td>
