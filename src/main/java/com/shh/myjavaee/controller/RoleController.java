@@ -137,6 +137,33 @@ public class RoleController {
         return "redirect:./result3";
     }
 
+    @RequestMapping("/addRole4")
+    public String addRole4(RedirectAttributes ra, Role role) {
+        ra.addFlashAttribute("role", role);
+        return "redirect:/result/success";
+    }
+
+    @RequestMapping("/addRole5")
+    public String addRole5(Model model, Role role) {
+        model.addAttribute("roleName", role.getRoleName());
+        return "forward:./fail";
+    }
+
+    @RequestMapping("/addRole6")
+    public ModelAndView addRole6( Role role) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("roleName", role.getRoleName());
+        mv.setViewName("forward:./fail");
+        return mv;
+    }
+
+    @RequestMapping("/addRole7")
+    public ModelAndView addRole7(ModelAndView mv, Role role) {
+        mv.addObject("roleName", role.getRoleName());
+        mv.setViewName("forward:/result/fail");
+        return mv;
+    }
+
     @RequestMapping("/result")
     public String result(Model model, Role role) {
         return "result";
@@ -150,7 +177,12 @@ public class RoleController {
     }
 
     @RequestMapping("/result3")
-    public String result3(Role role) {
+    public String result3(Model model) {
         return "result";
+    }
+
+    @RequestMapping("/fail")
+    public String fail() {
+        return "fail";
     }
 }
