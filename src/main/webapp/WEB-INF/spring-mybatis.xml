@@ -17,17 +17,21 @@
     <!--加载属性文件-->
     <context:property-placeholder location="classpath:jdbc.properties" ignore-resource-not-found="true"/>
     <!--配置数据库连接池-->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${database.driver}"/>
-        <property name="url" value="${database.url}"/>
-        <property name="username" value="${database.username}"/>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${database.driver}"/>
+        <property name="jdbcUrl" value="${database.url}"/>
+        <property name="user" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
-        <!--连接池的最大数据库连接数 -->
-        <property name="maxActive" value="255"/>
-        <!--最大等待连接中的数量 -->
-        <property name="maxIdle" value="5"/>
-        <!--最大等待毫秒数 -->
-        <property name="maxWait" value="10000"/>
+        <!--连接池初始化连接数-->
+        <property name="initialPoolSize" value="2"/>
+        <!--连接池中保留的最小连接数-->
+        <property name="minPoolSize" value="2"/>
+        <!--连接池中保留的最大连接数-->
+        <property name="maxPoolSize" value="12"/>
+        <!--当连接池中的连接耗尽的时候时获取的新连接数-->
+        <property name="acquireIncrement" value="2"/>
+        <!--最大空闲时间（单位秒），超时则被回收-->
+        <property name="maxIdleTime" value="30"/>
     </bean>
     <!--集成MyBatis-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
