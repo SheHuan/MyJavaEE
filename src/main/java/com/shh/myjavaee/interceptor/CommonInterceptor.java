@@ -11,6 +11,11 @@ public class CommonInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         System.err.println("preHandle");
+        System.out.println("getServletPath:" + httpServletRequest.getServletPath());
+        System.out.println("getContextPath:" + httpServletRequest.getContextPath());
+        System.out.println("getRequestURI:" + httpServletRequest.getRequestURI());
+        System.out.println("getRequestURL:" + httpServletRequest.getRequestURL());
+//        httpServletRequest.getRequestDispatcher("/WEB-INF/jsp/fail.jsp").forward(httpServletRequest, httpServletResponse);
         return true;
     }
 

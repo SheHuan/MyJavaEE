@@ -3,12 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--扫描service目录下的类，并将对象存储在IoC容器中-->
     <context:component-scan base-package="com.shh.myjavaee.service"/>
@@ -49,10 +52,27 @@
         <!--扫描使用了Repository注解的类-->
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
     </bean>
+
+    <!--用xml方式配置Spring的声明式事务管理-->
     <!--配置数据源事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <!--配置事务模板-->
+    <tx:advice id="advice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="select*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="query*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="list*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--事务的AOP相关配置-->
+    <aop:config>
+        <aop:pointcut id="crudPointCut" expression="execution(* com.shh.myjavaee.service.impl.*ServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="advice" pointcut-ref="crudPointCut"/>
+    </aop:config>
     <!--配置声明式事物的注解驱动-->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 </beans>
