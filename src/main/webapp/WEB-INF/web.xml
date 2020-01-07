@@ -26,6 +26,12 @@
     </servlet>
 
     <!--拦截所有请求，但不包括jsp-->
+    <!--
+        /  只会匹配/add类型的url，不会匹配*.jsp类型的url
+        /* 以上两种类型的url都会匹配
+        /* 匹配一级，即 /add , /query 等
+        /**匹配多级，即 /add , /add/user, /add/user/user... 等
+    -->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
