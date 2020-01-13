@@ -44,12 +44,13 @@
 
             $("#commit").click(function () {
                 //提交表单
-                var data = $("form").serialize()
+                var data = $("form").serialize();
                 $.post({
                     url: "./serializeParams",
                     data: data,
                     success: function (result) {
-                        alert("名称：" + result.roleName + "\n" + "备注：" + result.note)
+                        var s =  $.parseJSON(result);
+                        alert("名称：" + s.roleName + "\n" + "备注：" + s.note);
                     }
                 });
             });

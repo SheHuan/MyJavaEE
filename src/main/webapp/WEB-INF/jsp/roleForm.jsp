@@ -4,7 +4,8 @@
     <title>RoleForm</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/role/addRole6" id="form" method="post">
+<%--${pageContext.request.contextPath}/role/addRole6--%>
+<form action="addRole6" id="form" method="post">
     <table>
         <tr>
             <td>名称</td>
