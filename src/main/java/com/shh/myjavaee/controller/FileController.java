@@ -1,5 +1,6 @@
 package com.shh.myjavaee.controller;
 
+import com.shh.myjavaee.pojo.MyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,5 +30,10 @@ public class FileController {
     @RequestMapping("/uploadForm")
     public String upload() {
         return "upload";
+    }
+
+    @RequestMapping("/error")
+    public void error() throws MyException {
+        throw new MyException("测试异常");
     }
 }

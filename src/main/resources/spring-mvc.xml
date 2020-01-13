@@ -48,6 +48,20 @@
         </property>
     </bean>
 
+    <!--配置异常处理，和@ControllerAdvice定义的异常处理类任选一个即可-->
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--        &lt;!&ndash;默认的异常处理页面&ndash;&gt;-->
+<!--        <property name="defaultErrorView" value="error"/>-->
+<!--        &lt;!&ndash;在页面可以访问的异常变量名&ndash;&gt;-->
+<!--        <property name="exceptionAttribute" value="e"/>-->
+<!--        <property name="exceptionMappings">-->
+<!--            &lt;!&ndash;配置指定异常映射&ndash;&gt;-->
+<!--            <props>-->
+<!--                <prop key="MyException">error</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
     <!-- 使用注解驱动 Spring MVC，即开启Spring MVC框架注解的支持 -->
     <mvc:annotation-driven conversion-service="conversionService">
         <mvc:message-converters>
