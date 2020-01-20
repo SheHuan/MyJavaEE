@@ -1,1 +1,1 @@
-# MyJavaEE
+# MySSM
