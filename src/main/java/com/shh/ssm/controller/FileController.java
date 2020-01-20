@@ -1,6 +1,6 @@
-package com.shh.myjavaee.controller;
+package com.shh.ssm.controller;
 
-import com.shh.myjavaee.pojo.MyException;
+import com.shh.ssm.pojo.MyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;

@@ -16,6 +16,6 @@
     </settings>
 
     <typeAliases>
-        <package name="com.shh.myjavaee.pojo"/>
+        <package name="com.shh.ssm.pojo"/>
     </typeAliases>
 </configuration>

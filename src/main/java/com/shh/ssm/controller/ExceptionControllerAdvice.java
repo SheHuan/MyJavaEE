@@ -1,6 +1,6 @@
-package com.shh.myjavaee.controller;
+package com.shh.ssm.controller;
 
-import com.shh.myjavaee.pojo.MyException;
+import com.shh.ssm.pojo.MyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 

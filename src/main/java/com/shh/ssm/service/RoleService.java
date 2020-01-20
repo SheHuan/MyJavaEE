@@ -1,6 +1,6 @@
-package com.shh.myjavaee.service;
+package com.shh.ssm.service;
 
-import com.shh.myjavaee.pojo.Role;
+import com.shh.ssm.pojo.Role;
 
 import java.util.List;
 

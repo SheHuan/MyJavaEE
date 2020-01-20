@@ -1,4 +1,4 @@
-package com.shh.myjavaee.pojo;
+package com.shh.ssm.pojo;
 
 public class MyException extends Exception {
     private String message;

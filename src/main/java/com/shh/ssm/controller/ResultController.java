@@ -1,6 +1,6 @@
-package com.shh.myjavaee.controller;
+package com.shh.ssm.controller;
 
-import com.shh.myjavaee.pojo.Role;
+import com.shh.ssm.pojo.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

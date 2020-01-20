@@ -1,6 +1,6 @@
-package com.shh.myjavaee.dao;
+package com.shh.ssm.dao;
 
-import com.shh.myjavaee.pojo.Role;
+import com.shh.ssm.pojo.Role;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

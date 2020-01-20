@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--扫描service目录下的类，并将对象存储在IoC容器中-->
-    <context:component-scan base-package="com.shh.myjavaee.service"/>
+    <context:component-scan base-package="com.shh.ssm.service"/>
     <!--使用注解驱动-->
     <!--<context:annotation-config/>-->
 
@@ -49,7 +49,7 @@
     <!--采用自动扫描方式创建 mapper bean-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--扫描的目录-->
-        <property name="basePackage" value="com.shh.myjavaee.dao"/>
+        <property name="basePackage" value="com.shh.ssm.dao"/>
 <!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
         <!--扫描使用了Repository注解的类-->
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
@@ -73,7 +73,7 @@
     <!--事务的AOP相关配置-->
     <aop:config>
         <!--定义切入点表达式-->
-        <aop:pointcut id="pt" expression="execution(* com.shh.myjavaee.service.impl.*.*(..))"/>
+        <aop:pointcut id="pt" expression="execution(* com.shh.ssm.service.impl.*.*(..))"/>
         <!--建立切点表达式和事务的通知的关系-->
         <aop:advisor advice-ref="advice" pointcut-ref="pt"/>
     </aop:config>

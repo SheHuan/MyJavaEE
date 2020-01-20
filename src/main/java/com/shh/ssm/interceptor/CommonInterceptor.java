@@ -1,4 +1,4 @@
-package com.shh.myjavaee.interceptor;
+package com.shh.ssm.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

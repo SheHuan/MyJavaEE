@@ -1,4 +1,4 @@
-package com.shh.myjavaee.converter;
+package com.shh.ssm.converter;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.util.StringUtils;
